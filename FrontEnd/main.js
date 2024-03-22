@@ -1,5 +1,3 @@
-import { test } from "./test.js";
-
 let objets = window.localStorage.getItem('Objets');
 
 console.log(objets);
