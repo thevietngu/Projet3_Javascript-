@@ -47,6 +47,7 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
+
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -54,10 +55,41 @@ body {
 	font-size: 14px;
 }
 header {
-	display: flex;
-	justify-content: space-between;
+	
 	margin: 50px 0
 }
+
+.headnav{
+
+	display: flex;
+	justify-content: space-between;
+	margin: 0;
+}
+
+.barreEdition {
+	
+    background-color: black;
+    color: white;
+	padding: 20px;
+	margin-bottom: 30px;
+    text-align: center;
+    cursor: pointer;
+	display: none; /* La barre est initialement cachée */
+}
+
+.barreEdition  img{
+	
+  margin-right: 20px;
+}
+
+
+
+header a {
+	display: flex;
+	text-decoration: none;
+	color: inherit;
+}
+
 section {
 	margin: 50px 0
 }
@@ -121,10 +153,135 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+
+.adminedit {
+
+display: none;
+width: 100%;
+
+}
+
+
+.modal {
+	display: none; 
+	position: fixed; 
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.4); 
+  }
+  
+ 
+  .modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; 
+	padding: 20px;
+	border: 1px solid #888; 
+	width: 50%; 
+  }
+  
+  .close {
+	color: #aaa; 
+	float: right; 
+	font-size: 28px; 
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black; 
+	text-decoration: none; 
+	cursor: pointer; 
+  }
+
+
+  #openModalBtn{
+
+	display: none;
+	flex-direction: row;
+	background-color: transparent;
+	align-items: center;
+	justify-content: space-between; 
+	border: none;
+	width:2%; 
+	height: 15px; 
+	cursor: pointer; 
+	outline: none; 
+	margin-top: 10px;
+  
+  }
+
+  #openModalBtn img{
+
+	margin-right: 5px;
+  
+  }
+
+#ModProj {
+
+	display: flex;
+	justify-content: center;
+}
+
+#ModProj h2{
+
+	margin-right: 20px;
+
+}
+
+#prevButton {
+
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-bottom: 10px; 
+}
+
+.modal-content2 {
+	
+	
+	background-color: #fefefe;
+	margin: 15% auto; 
+	padding: 20px;
+	border: 1px solid #888; 
+	width: 50%;
+	display: none;
+}
+
+
+.modal-content2 label{
+	
+	margin: auto; 
+	
+}
+
+#imagePreview {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 3px;
+    margin-top: 10px;
+	display: none;
+  }
+  
+  #imagePreview p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #888;
+  }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -133,20 +290,55 @@ li:hover {
 	grid-row-gap: 20px;
 }
 
+
+
 .gallery img {
 	width: 100%;
 
 }
+
+#step1{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+#step1 img{
+	width: 100%;
+
+}
+
+#step1 figure{
+
+	width: 80%;
+}
+
+#step1 figure button {
+	position: absolute;
+	top: 5px; 
+	right: 5px; 
+	width: 25px; 
+	height: 25px; 
+	background-color: black;
+	border: none; 
+	cursor: pointer;
+	border-radius: 5px; 
+
+}
+
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
-
 }
 #contact h2{
 	margin-bottom: 20px;
+	margin-right: 20px; 
+
 }
 #contact form {
 	text-align: left;
@@ -180,10 +372,19 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
+}
+
+#logout{
+
+	display: none;
 }
 
 
@@ -226,3 +427,137 @@ footer nav ul {
 	color: white;
 }
 
+.ModalForm {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+	justify-content: center;
+
+}
+
+.ModalForm button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    display: flex;
+    border: solid #D9D9D9 2px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+	color : white;
+	border-color: #1D6154;
+	background-color:  #1D6154 ;
+}
+
+#ModalFormBtn{
+	margin-top: 20px;
+display: flex;
+justify-content: center;
+width: 60%;
+height: 50px;
+text-align: center;
+
+}
+
+
+#ModalFormBtn2{
+	margin-top: 20px;
+display: flex;
+justify-content: center;
+width: 60%;
+height: 50px;
+text-align: center;
+
+}
+
+
+.formnewproj{
+
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	
+}
+
+.formnewproj h3{
+
+	margin-top: 10px;
+	margin-bottom: 10px;
+	
+}
+
+
+
+.labeltext  h3{
+	font-family: 'Work Sans';
+	font-size: 15px;
+	line-height: 16.42px;
+	margin-top: 40px;
+	margin-bottom: 15px;
+}
+
+#texte
+{
+	width: 99.1%;
+	height: 51px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border: transparent;	
+}
+
+#listcat {
+
+	width: 100%;
+	height: 51px;
+	border: transparent;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin-bottom: 30px;
+	
+}
+
+#Addphotocontent{
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #E8F1F6;
+	text-align: center;
+	align-items: center;
+	margin: 10px;
+	padding: 20px;
+	
+	}
+
+
+	#Addphotocontent img	{
+
+	width: 20%;
+		
+		}
+
+ 
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+.custom-file-upload #file-label {
+
+    padding: 10px 20px;
+    margin: 10px;
+    display: flex;
+    border: solid #D9D9D9 2px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+	justify-content: center;
+	color :#306685;
+	border-color: #CBD6DC;
+	background-color:  #CBD6DC; 
+}
