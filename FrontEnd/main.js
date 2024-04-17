@@ -47,7 +47,7 @@ const logoutbtn = document.getElementById("logout");
 
 logoutbtn.addEventListener("click", function (event) {
     
-    localStorage.clear();
+    localStorage.removeItem("InfosLog")
        
         const loginbtn = document.getElementById("Login");
 
@@ -454,5 +454,5 @@ btntrierHhotelRestaurant.addEventListener("click", function () {
 // Vider le local storage à chaque fermmeture de page pour que l'admin dove saisir ses identifiants à chaque visite
 
 window.addEventListener('beforeunload', function(event) {
-    localStorage.clear();
+    localStorage.removeItem("InfosLog")
 });
