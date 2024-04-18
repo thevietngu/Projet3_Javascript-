@@ -262,7 +262,8 @@ titreInput.addEventListener('input', validateForm);
 categorieSelect.addEventListener('change', validateForm);
 photoInput.addEventListener('change', validateForm);
 
-// Appel initial de la fonction de validation
+// Appel initial de la fonction de validation remplissage des champs
+
 validateForm();
 
     form.addEventListener('submit', function(event) {
