@@ -9,12 +9,13 @@ try {
         throw new Error('La requête a échoué.');
     }
      objets = await reponse.json();
-    // Utilisez les objets récupérés ici
 } catch (error) {
     console.error('Erreur lors de la récupération des données:', error);
 }
 
  // Verification si mode admin ou non, si oui données d'auhtentification ( id + token stockée sur le local storage)
+ const filtercont = document.getElementById("filter-container");
+ 
 
 function Logadmin() {
     const StoredData = JSON.parse(localStorage.getItem("InfosLog"));
@@ -23,6 +24,9 @@ function Logadmin() {
         // edition.innerHTML = JSON.stringify(StoredData);
         edition.style.display = "block";
         edition.style.marginBottom ='20px';
+
+        const filtercont = document.getElementById("filter-container");
+        filtercont.style.display = "none";
 
         const header = document.querySelector("header");
         header.style.margin ='0';
@@ -54,6 +58,7 @@ logoutbtn.addEventListener("click", function (event) {
 
         loginbtn.style.display = "inline";
         logoutbtn.style.display = "none";
+        filtercont.style.display = "block";
         window.location.href ="./index.html";
 
 }
@@ -149,6 +154,7 @@ closeModalBtn.forEach(function(button) {
         const fileinput = document.getElementById('photo');
         fileinput.style.display="inline-flex";
         
+        
       });
   });
   
@@ -181,6 +187,7 @@ openModalBtnaddprojet.addEventListener("click", function(event){
     modalcontent2.style.display ="block"
     const fileinput = document.getElementById('photo');
     fileinput.style.display="none";
+    form.reset();
     
 
 })
@@ -223,7 +230,40 @@ inputphotochange.addEventListener("change", function(){
     previewImage()
 });
 
- const form = document.getElementById('formnewproj');
+
+
+const form = document.getElementById('formnewproj');
+const titreInput = document.getElementById('texte');
+const categorieSelect = document.getElementById('listcat');
+const photoInput = document.getElementById('photo');
+const submitBtn = document.getElementById('ModalFormBtn2');
+
+// Fonction de validation du formulaire
+function validateForm() {
+  const titreValide = titreInput.value.trim() !== '';
+  const categorieValide = categorieSelect.value !== '';
+  const photoValide = photoInput.files.length > 0;
+  const efferrform = document.getElementById("afferrorform");
+
+  if (titreValide && categorieValide && photoValide) {
+    submitBtn.disabled = false; 
+    submitBtn.style.backgroundColor ="#1D6154"
+    efferrform.innerText ="";
+  } else {
+    submitBtn.style.backgroundColor ="#A7A7A7"
+    efferrform.innerText =" Merci de bien vouloir remplir les champs et/ou ajouter une photo avant de valider";
+    submitBtn.disabled = true;
+   
+  }
+}
+
+// Écouteurs d'événements pour les champs du formulaire
+titreInput.addEventListener('input', validateForm);
+categorieSelect.addEventListener('change', validateForm);
+photoInput.addEventListener('change', validateForm);
+
+// Appel initial de la fonction de validation
+validateForm();
 
     form.addEventListener('submit', function(event) {
         event.preventDefault(); 

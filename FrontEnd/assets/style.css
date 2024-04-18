@@ -298,12 +298,14 @@ width: 100%;
 }
 
 #step1{
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
+
+	display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+	
 }
+
 
 #step1 img{
 	width: 100%;
@@ -311,8 +313,8 @@ width: 100%;
 }
 
 #step1 figure{
-
-	width: 80%;
+	margin : 10px;
+	width: 20%;
 }
 
 #step1 figure button {
